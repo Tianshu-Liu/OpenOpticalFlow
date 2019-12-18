@@ -26,8 +26,12 @@ y1_normalized=[1:m1]/m1;
 
 % obtain interpolated velocity field in the finer image
 [XI,YI] = meshgrid(x1_normalized,y1_normalized);
-uxI = (n1/n0)*interp2(X,Y,ux,XI,YI); % pixels/unit time in finer image
-uyI = (m1/m0)*interp2(X,Y,uy,XI,YI); % pixels/unit time in finer image
+% uxI = (n1/n0)*interp2(X,Y,ux,XI,YI); % pixels/unit time in finer image
+% uyI = (m1/m0)*interp2(X,Y,uy,XI,YI); % pixels/unit time in finer image
+
+uxI = (n1/n0)*imresize(ux,[length(y1_normalized) length(x1_normalized)]); % pixels/unit time in finer image
+uyI = (m1/m0)*imresize(uy,[length(y1_normalized) length(x1_normalized)]); % pixels/unit time in finer image
+
 
 % generate a shifted image from Im1 based on the velocity field that is
 % rounded
