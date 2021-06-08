@@ -10,6 +10,9 @@ close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Read a pair of images
+%% For 12, 14 and 14 bit images, they should be converted to 8 bit images
+%% befor optical flow computation
+
 Im1=imread('White_oval_1.tif');
 Im2=imread('White_Oval_2.tif');
 
@@ -37,7 +40,7 @@ lambda_2=2000; % the Liu-Shen estimator for refined estimation
 
 %% Number of iterations in the coarse-to-fine iterative process from
 %% initial estimation, "0" means no iteration
-no_iteration=2; 
+no_iteration=1; 
 
 %% Initial coarse field estimation in the coarse-to-fine iterative process,
 %% scale_im is a scale factor for down-sizing of images
